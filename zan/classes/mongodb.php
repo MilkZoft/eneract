@@ -107,11 +107,11 @@ class ZP_MongoDB extends ZP_Load
 		}
 		
 		if ($justOne and $safe) {
-			$options = array("justOne" => true, "safe" => true);
+			$options = array("justOne" => true, "w" => true);
 		} elseif ($justOne) {
 			$options = array("justOne" => true);
 		} elseif ($safe) {
-			$options = array("safe" => true);
+			$options = array("w" => true);
 		}
 		
 		$this->Mongo->selectCollection(DB_NOSQL_DATABASE, $this->collection)->remove($criteria, $options);
@@ -569,15 +569,16 @@ class ZP_MongoDB extends ZP_Load
 		if (is_null($this->collection) or !$criteria) {
 			return false;
 		}
-		
+
 		$options = ($options) ? $options : array("upsert" => true);
-		
+
 		if (!$update and is_array($this->data)) {
 			$update = $this->data;
 		}
+	
+		$response = $this->Mongo->selectCollection(DB_NOSQL_DATABASE, $this->collection)->update($criteria, array('$set' => $update));
 		
-		$this->Mongo->selectCollection(DB_NOSQL_DATABASE, $this->collection)->update($criteria, $update, $options);	
-		return true;
+		return isset($response["updatedExisting"]) ? $response["updatedExisting"] : false;
 	}
 
 	public function upload($fname = "file")

@@ -307,9 +307,56 @@ if (!function_exists("whichApplication")) {
 	}
 }
 
+if (!function_exists("addCDN")) {
+	function addCDN($content) 
+	{
+		$server = _get("webServer");
+		$cdnServers = _get("cdnServers");
+
+		if (is_array($cdnServers) and count($cdnServers) > 0) {
+			$servers = count($cdnServers) - 1;
+
+			for ($i = 0; $i <= $servers; $i++) {
+				$content = str_replace($cdnServers[$i] ."/www", "{{CDN_SERVER}}/www", $content);				
+			}
+		}
+
+		$content = str_replace($server ."/www", "{{CDN_SERVER}}/www", $content);
+
+		return $content;
+	}
+}
+
+if (!function_exists("getCDN")) {
+	function getCDN() 
+	{
+		if (_get("environment") > 1 and _get("cdnStatus") and count(_get("cdnServers")) > 0) {
+			$cdnServers = _get("cdnServers");
+			$count = count($cdnServers) - 1;
+
+			$server = ($count > 0) ? rand(0, $count) : 0;
+
+			return $cdnServers[$server];
+		} else {
+			return _get("webURL");
+		}
+	}
+}
+
 if (!function_exists("path")) {
 	function path($path = false, $URL = false, $lang = true, $anchor = false)
 	{
+		if (_get("cdnStatus") and count(_get("cdnServers")) > 0 and strstr($path, "www/applications") === false) {
+			$cdnServers = _get("cdnServers");
+			$count = count($cdnServers) - 1;
+
+			$server = ($count > 0) ? rand(0, $count) : 0;
+
+			$webURL = $cdnServers[$server];
+		} else {
+			$webURL = _get("webURL");
+		}
+
 		$anchor = ($anchor and defined("_anchor")) ? SH . ANCHOR : null;
 
 		if ($path === false) {
@@ -328,12 +375,12 @@ if (!function_exists("path")) {
 			if ($lang !== true) {
 				$lang = getLang($lang);
 
-				return ($URL) ? _get("webURL") ."/". $path : _get("webBase") ."/". $lang ."/". $path . $anchor;
+				return ($URL) ? $webURL ."/". $path : _get("webBase") ."/". $lang ."/". $path . $anchor;
 			}
 
-			return ($URL) ? _get("webURL") ."/". $path : _get("webBase") ."/". _get("webLang") ."/". $path . $anchor;
+			return ($URL) ? $webURL ."/". $path : _get("webBase") ."/". _get("webLang") ."/". $path . $anchor;
 		} else {
-			return ($URL) ? _get("webURL") ."/". $path : _get("webBase") ."/". $path . $anchor;
+			return ($URL) ? $webURL ."/". $path : _get("webBase") ."/". $path . $anchor;
 		}
 	}
 }

@@ -3,8 +3,41 @@ if (!defined("ACCESS")) {
 	die("Error: You don't have permission to access here...");
 }
 
+if(!function_exists("getImageFromHTML")) {
+	function getImageFromHTML($content) 
+	{
+		preg_match_all('/< *img[^>]*src *= *["\']?([^"\']*).(jpg|png|gif)/i', $content, $matches);
+
+		if (isset($matches[1][0]) and isset($matches[2][0])) {
+			return replaceCDN($matches[1][0] .'.'. $matches[2][0]);
+		} else {
+			return replaceCDN("{{CDN_SERVER}}/www/lib/files/images/default.png");
+		}
+	}
+}
+
+if(!function_exists("spellChecker")) {
+	function spellChecker($text) 
+	{
+		global $Load;
+
+		$language = whichLanguage();
+
+		$RestClient = $Load->core("RESTClient");
+
+		$RestClient->setURL("http://spellcheckerphp.com/api/");
+
+		if (_get("verifySpelling") and $language == "Spanish") {
+			return $RestClient->POST(array("text" => $text), true);
+		}
+
+		return $text;
+	}
+}
+
 if (!function_exists("bbCode")) {
-	function bbCode($text) {
+	function bbCode($text) 
+	{
 		$text = trim($text);
 		$text = preg_replace_callback('/\[code\](.*?)\[\/code\]/ms', "escape", $text);
 		
@@ -53,6 +86,7 @@ if (!function_exists("bbCode")) {
 		$text = preg_replace('/<p><pre>(.*?)<\/pre><\/p>/ms', "<pre>\\1</pre>", $text);
 		$text = preg_replace_callback('/<ul>(.*?)<\/ul>/ms', "removeBr", $text);
 		$text = preg_replace('/<p><ul>(.*?)<\/ul><\/p>/ms', "<ul>\\1</ul>", $text);
+		
 		return $text;
 	}
 }
@@ -157,9 +191,9 @@ if (!function_exists("createURL")) {
 if (!function_exists("display")) {
 	function display($content = null, $environment = true, $language = true)
 	{
-		if ($content and ($environment === true or _get("environment") === $environment) and $language === true) {
+		if ($content and ($environment === true or _get("environment") <= $environment) and $language === true) {
 			return $content;
-		} elseif ($content and ($environment === true or _get("environment") === $environment) and $language === whichLanguage()) {
+		} elseif ($content and ($environment === true or _get("environment") <= $environment) and $language === whichLanguage()) {
 			return $content;
 		}
 
@@ -189,17 +223,17 @@ if (!function_exists("exploding")) {
 			if ($count > 0) {
 				for ($i = 0; $i <= $count; $i++) {
 					if (!is_null($URL)) {
-						if ($i === $count) {
+						if ($i == $count) {
 							$return .= '<a href="'. path($URL . slug($parts[$i])) .'" title="'. $parts[$i] .'">'. $parts[$i] .'</a>';
-						} elseif ($i === $count - 1) {
+						} elseif ($i == $count - 1) {
 							$return .= '<a href="'. path($URL . slug($parts[$i])) .'" title="'. $parts[$i] .'">'. $parts[$i] .'</a> '. __("and") .' ';
 						} else {
 							$return .= '<a href="'. path($URL . slug($parts[$i])) .'" title="'. $parts[$i] .'">'. $parts[$i] .'</a>, ';
 						}
 					} else {
-						if ($i === $count) {
+						if ($i == $count) {
 							$return .= $parts[$i];
-						} elseif ($i === $count - 1) {
+						} elseif ($i == $count - 1) {
 							$return .= $parts[$i] .' '. __("and") .' ';
 						} else {
 							$return .= $parts[$i] .', ';
@@ -307,6 +341,7 @@ if (!function_exists("filter")) {
 		$text = str_replace("%22", "", $text);
 		$text = str_replace("%20", "", $text);
 		$text = str_replace("indexphp", "index.php", $text);
+		
 		return $text;
 	}
 }
@@ -314,11 +349,10 @@ if (!function_exists("filter")) {
 if (!function_exists("quotes")) {
 	function quotes($text)
 	{
-		$text = str_replace("?s", "'s", $text);
-		$text = str_replace("?m", "'m", $text);
-		$text = str_replace("?t", "'t", $text);
-		$text = str_replace("s?", "s", $text); 
-		return stripslashes($text);
+		$text = str_replace("&#39;", "\'", $text);
+		$text = str_replace("&quot;", '\"', $text);
+
+		return $text;
 	}
 }
 
@@ -464,8 +498,17 @@ if (!function_exists("showContent")) {
 		$content = str_replace("\'", "'", $content);
 		$content = str_replace("<a ", '<a rel="nofollow" ', $content);
 		$content = removeRareChars($content);
+		$content = str_replace("{{CDN_SERVER}}", getCDN(), $content);
+		$content = str_replace("<p>&nbsp;</p>", "", $content);
 
 		return setCode($content);		
+	}
+}
+
+if (!function_exists("replaceCDN")) {
+	function replaceCDN($content)
+	{
+		return str_replace("{{CDN_SERVER}}", getCDN(), $content);
 	}
 }
 
@@ -532,6 +575,18 @@ if (!function_exists("repeat")) {
 if (!function_exists("slug")) {
 	function slug($string)
 	{		
+		$specialWords = array(
+			"C++" 			=> "cpp",
+			"C/C++" 		=> "c-cpp",
+			"Node.js" 	 	=> "nodejs",
+			"Backbone.js" 	=> "backbonejs",
+			"Angular.js"  	=> "angularjs"
+		);
+
+		if (array_key_exists($string, $specialWords)) {
+			return $specialWords[$string];
+		} 		
+
 		$characters = array(
 			"Á" => "A", "Ç" => "c", "É" => "e", "Í" => "i", "Ñ" => "n", "Ó" => "o", "Ú" => "u", "á" => "a", "ç" => "c", 
 			"é" => "e", "í" => "i", "ñ" => "n", "ó" => "o", "ú" => "u", "à" => "a", "è" => "e", "ì" => "i", "ò" => "o", 
@@ -597,8 +652,10 @@ if (!function_exists("POST")) {
 			}
 		}
 
-		if ($coding === "clean") {
-			return isset($_POST[$position]) ? $_POST[$position] : FALSE;
+		if ($coding === "clenHTML") {
+			return isset($_POST[$position]) ? cleanHTML($_POST[$position]) : false;
+		} elseif ($coding === "clean") {
+			return isset($_POST[$position]) ? $_POST[$position] : false;
 		} elseif ($position === true) {		
 			return $_POST;
 		} elseif (!$position) {
@@ -825,8 +882,12 @@ if (!function_exists("REQUEST")) {
 if (!function_exists("recoverPOST")) {
 	function recoverPOST($position, $value = null)
 	{ 
-		if (is_null($value)) {
-			return (is_array(POST($position))) ? POST($position) : (POST($position) ? htmlentities(POST($position, "decode", false)) : null);
+		if (is_null($value)) { 
+			if (is_array(POST($position))) { 
+				return POST($position); 
+			} elseif (POST($position)) {
+				return _get("isOnline") ? htmlentities(decode(POST($position))) : htmlentities(POST($position));
+			}
 		} else { 
 			if (is_array($value)) {
 				foreach ($value as $val) {
@@ -840,11 +901,15 @@ if (!function_exists("recoverPOST")) {
 				
 				return $data;
 			} else { 
-				if ($position === "content") {
+				if ($position == "content") {
 					return (POST($position)) ? POST($position, "decode", false) : decode($value);
 				}
 
-				return (POST($position)) ? htmlentities(POST($position, "decode", false)) : htmlentities(decode($value));
+				if (POST($position)) {
+					return _get("isOnline") ? htmlentities(decode(POST($position))) : htmlentities(POST($position));
+				} else {
+					return _get("isOnline") ? htmlentities(decode($value)) : htmlentities($value);
+				}
 			}	
 		}
 	}
@@ -865,16 +930,23 @@ if (!function_exists("removeSpaces")) {
 }
 
 if (!function_exists("social")) {
-	function social($URL, $content, $facebook = true, $twitter = true, $gPlus = true, $linkedin = true, $float = false)
+	function social($type = "horizontal", $title, $URL)
 	{
-		$float = ($float) ? " float-right" : null;
-		$HTML  = '<div class="social'. $float .'">';
-		$HTML .= ($facebook) ? ' <div class="fb-like" data-href="'. $URL .'" data-send="true" data-layout="button_count" data-width="100" data-show-faces="true" data-font="lucida grande"></div>' : "";
-		$HTML .= ($twitter) ? ' <a href="https://twitter.com/share" class="twitter-share-button" data-url="'. $URL .'" data-text="'. $content .'" data-via="'. VIA .'" data-lang="'. _get("webLang") .'">Tweet</a>' : "";
-		$HTML .= ($gPlus) ? ' <div class="g-plusone" data-size="medium" data-href="'. $URL .'"></div>' : "";
-		$HTML .= ($linkedin) ? ' <script type="IN/Share" data-url="'. $URL .'" data-counter="right"></script>' : "";
-		$HTML .= '</div>';
-		return $HTML;
+		$display = 'st_title="'. $title .'" st_url="'. $URL .'"';
+
+		if ($type == "horizontal") {
+			return '<span '. $display .' st_via="codejobs" class="st_facebook_hcount" displayText="Facebook"></span>
+					<span '. $display .' st_via="codejobs" class="st_twitter_hcount" displayText="Tweet"></span>
+					<span '. $display .' st_via="codejobs" class="st_linkedin_hcount" displayText="LinkedIn"></span>
+					<span '. $display .' st_via="codejobs" class="st_plusone_hcount" displayText="Google +1"></span>';
+		} else {
+			return '<span '. $display .' st_via="codejobs" class="st_facebook_vcount" displayText="Facebook"></span>
+					<span '. $display .' st_via="codejobs" class="st_twitter_vcount" displayText="Tweet"></span>
+					<span '. $display .' st_via="codejobs" class="st_linkedin_vcount" displayText="LinkedIn"></span>
+					<span '. $display .' st_via="codejobs" class="st_delicious_vcount" displayText="Delicious"></span>
+					<span '. $display .' st_via="codejobs" class="st_tumblr_vcount" displayText="Tumblr"></span>
+					<span '. $display .' st_via="codejobs" class="st_plusone_vcount" displayText="Google +1"></span>';
+		}
 	}
 }
 
