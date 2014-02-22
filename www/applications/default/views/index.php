@@ -31,7 +31,7 @@
                         </li>
                         <li><a href="#about" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-3x"></i></a>
                         </li>
-                        <li><i class="fa fa-dribbble fa-3x"></i>
+                        <li><a class="btn btn-default btn-lg"><i class="fa fa-dribbble fa-3x"></i></a>
                         </li>
                     </ul>
         </div>
