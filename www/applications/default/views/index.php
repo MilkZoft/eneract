@@ -27,9 +27,9 @@
             <h4 style="color:#FFFFFF">Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</h4>
             <p>&nbsp;</p>
             <ul class="list-inline">
-                        <li><i class="fa fa-facebook fa-3x"></i>
+                        <li><a href="<?php echo path("users/facebook"); ?>" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-3x"></i></a>
                         </li>
-                        <li><i class="fa fa-twitter fa-3x"></i>
+                        <li><a href="#about" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-3x"></i></a>
                         </li>
                         <li><i class="fa fa-dribbble fa-3x"></i>
                         </li>
