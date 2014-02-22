@@ -1,1 +1,0 @@
-<h1>Message from facebook controller: <?php echo $message; ?>

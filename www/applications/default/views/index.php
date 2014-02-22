@@ -25,8 +25,8 @@
             <h1>Enteract</h1>
             <h3>Save the environment. Earn rewards.</h3>
             <h4>Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</h4>
-            <a href="#about" class="btn btn-default btn-lg">Facebook</a>
-             <a href="#about" class="btn btn-default btn-lg">Twitter</a>
+            <a href="<?php echo path("users/facebook"); ?>" class="btn btn-default btn-lg">Facebook</a>
+            <a href="#about" class="btn btn-default btn-lg">Twitter</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->

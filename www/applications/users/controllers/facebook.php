@@ -15,8 +15,47 @@ class Facebook_Controller extends ZP_Load
 	}
 	
 	public function index()
-	{ 
-		echo "Hello World from Facebook controller";
+	{
+		$this->helper(array("alerts", "facebook", "forms", "html"));
+
+		$code = REQUEST("code");
+
+		if (!$code) {
+			getFacebookLogin();
+		} else {
+			die("aaa");
+			if (isConnectedToFacebook()) {
+				$facebookUser = getFacebookUser($code);
+
+		     	if ($facebookUser) {
+		     		$data = $this->Users_Model->checkUserService($facebookUser["serviceID"]);
+
+		     		if ($data) {
+		     			createLoginSessions($data[0]);
+		     		} else {
+		     			$vars = array(
+		     				"service" 	=> "facebook",
+		     				"serviceID" => $facebookUser["serviceID"],
+		     				"username" 	=> $facebookUser["username"],
+		     				"name" 		=> $facebookUser["name"],
+		     				"email" 	=> $facebookUser["email"],
+		     				"birthday" 	=> $facebookUser["birthday"],
+		     				"avatar" 	=> $facebookUser["avatar"]
+		     			);
+
+						SESSION("socialUser", $vars);
+
+		     			$vars["view"] = $this->view("socialregister", true);
+
+		     			$this->render("content", $vars);
+		     		}
+		     	} else {
+		     		showAlert(__("An unknown problem occurred, try to login again"), path());
+		     	} 
+		    } else {
+		     	showAlert(__("Invalid Token, try to login again"), path());
+			}
+		}
 	}
 
 	public function display($message = "Hello World from Display Method")
