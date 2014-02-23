@@ -11,9 +11,9 @@ class Facebook_Controller extends ZP_Load
 		$this->Templates = $this->core("Templates");
 		$this->Templates->theme();
 
-		//$this->Users_Model = $this->model("Users_Model");
+		$this->Users_Model = $this->model("Users_Model");
 	}
-	
+	//cujo9681
 	public function index()
 	{
 		$this->helper(array("alerts", "facebook", "forms", "html"));
@@ -23,10 +23,9 @@ class Facebook_Controller extends ZP_Load
 		if (!$code) {
 			getFacebookLogin();
 		} else {
-			die("aaa");
 			if (isConnectedToFacebook()) {
 				$facebookUser = getFacebookUser($code);
-
+				
 		     	if ($facebookUser) {
 		     		$data = $this->Users_Model->checkUserService($facebookUser["serviceID"]);
 
@@ -45,7 +44,7 @@ class Facebook_Controller extends ZP_Load
 
 						SESSION("socialUser", $vars);
 
-		     			$vars["view"] = $this->view("socialregister", true);
+		     			$vars["view"] = $this->view("profile", true);
 
 		     			$this->render("content", $vars);
 		     		}
@@ -56,32 +55,5 @@ class Facebook_Controller extends ZP_Load
 		     	showAlert(__("Invalid Token, try to login again"), path());
 			}
 		}
-	}
-
-	public function display($message = "Hello World from Display Method")
-	{
-		$this->title("You're on Display method");
-
-		$vars["message"] = $message;
-		$vars["view"] = $this->view("display", true);
-
-		$this->render("content", $vars);
-
-		// $this->view("display", $vars);
-	}
-
-	public function test($param1 = "Hola", $param2 = "Adios")
-	{
-		print "New dispatcher it's works fine: $param1, $param2";
-	}
-
-	public function show($message)
-	{
-		$this->title("ZanPHP");
-		
-		$vars["message"] = $message;
-		$vars["view"] = $this->view("show", true);
-
-		$this->render("content", $vars);		
 	}
 }

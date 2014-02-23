@@ -23,9 +23,9 @@ class Default_Controller extends ZP_Load
 		$this->render("content", $vars);
 	}
 
-	public function test($param1 = "Hola", $param2 = "Adios")
+	public function printMessage($message)
 	{
-		print "New dispatcher it's works fine: $param1, $param2";
+		echo "Message: $message";
 	}
 
 	public function show($message)

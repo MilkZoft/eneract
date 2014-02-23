@@ -13,8 +13,16 @@ class Users_Model extends ZP_Load
 		$this->fields = "userId, username, pwd, email";
 	}
 
-	public function getAllUsers()
+	public function checkUserService($id, $service = "Facebook")
 	{
-		return $this->Db->findAll($this->table, $this->fields);
+		if ($service == "Facebook") {
+			$serviceID = 'facebookId';
+		} else {
+			$serviceID = 'twitterId';
+		}
+
+		$fields = "userId, facebookId, facebookImageUrl, email, phone";
+	
+		return $this->Db->query("SELECT $fields FROM ". DB_PREFIX ."users WHERE $serviceID = '$id'");
 	}
 }
