@@ -12,12 +12,8 @@ $avatar     = recoverPOST("avatar", $socialUser["avatar"]);
 $serviceID  = recoverPOST("serviceID", $socialUser["serviceID"]);
 ?>
 <div class="container">
-	<form action="<?php path("users/facebook"); ?>" method="post" class="form-signin">
-		<h2 class="form-signin-heading"><?php echo img($avatar, array("class" => "dotted")); ?> <strong><?php echo __("Hi"); ?></strong>, <?php echo $name; ?>!</h2>
-
-		<p>
-			<?php echo __("Username"); ?>: <input class="form-control" name="username" type="text" value="<?php echo $username; ?>" />
-		</p>
+	<form action="<?php path("users/profile"); ?>" method="post" class="form-signin">
+		<h2 class="form-signin-heading"><?php echo img($avatar); ?> <strong><?php echo __("Hi"); ?></strong>, <?php echo $name; ?>!</h2>
 
 		<p>
 			<?php echo __("Email"); ?>: 

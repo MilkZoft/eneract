@@ -17,19 +17,14 @@ class Users_Controller extends ZP_Load
 		echo "Hello World";
 	}
 
-	public function all()
+	public function profile()
 	{
-		$this->Users_Model = $this->model("Users_Model");
-
-		$data = $this->Users_Model->getAllUsers();
-
-		if ($data) {
-			$vars["users"] = $data;
-			$vars["view"] = $this->view("all", true);
-
-			$this->render("content", $vars);
+		if (POST("complete")) {
+			$this->Users_Model = $this->model("Users_Model");
+		
+			$this->Users_Model->completeProfile();
 		} else {
-			$this->render("error404");
+
 		}
 	}
 }
