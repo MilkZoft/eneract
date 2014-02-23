@@ -1,9 +1,10 @@
     <div class="container" style="margin-top:60px;">
-
       <div class="starter-template">
+      <?php if (isConnected()) { ?>
         <p><img src="<?php echo $this->themePath; ?>/img/ico-ngw.png" title="Logo" style="float: left; margin: 10px 10px 15px 0px;"/>
         <h1 style="color:#2cb3b8">3,400 Negawatts</h1></p>
         <p style="margin-top:-10px; margin-left:10px; color:#474747">Current Balance</p>
+      <?php } ?>
          <div>
               <span style="float:left; margin-top:25px;">
               <h1 style="color:#474747">Use your Negawatts to save</br> $6 on your electric bill</h1></span>
