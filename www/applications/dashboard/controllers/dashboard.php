@@ -14,22 +14,7 @@ class Dashboard_Controller extends ZP_Load
 	
 	public function index()
 	{ 
-		echo "Hello World";
-	}
-
-	public function all()
-	{
-		$this->Users_Model = $this->model("Users_Model");
-
-		$data = $this->Users_Model->getAllUsers();
-
-		if ($data) {
-			$vars["users"] = $data;
-			$vars["view"] = $this->view("all", true);
-
-			$this->render("content", $vars);
-		} else {
-			$this->render("error404");
-		}
+		$vars['view'] = $this->view("dashboard", true);
+		$this->render("content", $vars);
 	}
 }
