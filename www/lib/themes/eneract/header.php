@@ -18,55 +18,59 @@
 		<link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
     <?php } ?>
     <style>
-		.btn-lg {
-		border-radius: 6px;
-		font-size: 18px;
-		line-height: 1.33;
-		padding: 10px 16px;
-		width:150px;
-	}
-	.btn-Facebook {
-		background-color: #5784c7;
-		border-color: #CCCCCC;
-		color: #ffffff;
+    html {
+    font-family: 'Roboto Slab', serif;
+      -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+    }
+    
+    .btn-lg {
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    width:150px;
+  }
+  .btn-Facebook {
+    background-color: #5784c7;
+    border-color: #CCCCCC;
+    color: #ffffff;
         -moz-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         -webkit-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
     }
-	.btn-Twitter {
-		background-color: #34c3e9;
-		border-color: #CCCCCC;
-		color: #ffffff;
+  .btn-Twitter {
+    background-color: #34c3e9;
+    border-color: #CCCCCC;
+    color: #ffffff;
         -moz-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         -webkit-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
-	}
-	.btn-Download {
-		background-color: #875bb3;
-		border-color: #CCCCCC;
-		color: #ffffff;
+  }
+  .btn-Download {
+    background-color: #875bb3;
+    border-color: #CCCCCC;
+    color: #ffffff;
         -moz-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         -webkit-box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
         box-shadow: 0px 2px 4px 0px hsla(0, 0%, 0%, 0.20);
-	}
-	.btn {
-		-moz-user-select: none;
-		background-image: none;
-		border: 1px solid rgba(0, 0, 0, 0);
-		border-radius: 4px;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 14px;
-		font-weight: normal;
-		line-height: 1.42857;
-		margin-bottom: 0;
-		padding: 6px 12px;
-		text-align: center;
-		vertical-align: middle;
-		white-space: nowrap;
-	}
-	
-	</style>
+  }
+  .btn {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
 </head>
 
 <body>   

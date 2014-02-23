@@ -6,9 +6,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <?php
-                        //echo '<img src="' . SESSION('ZanAvatar') . '">';
-                        echo '<img src="' . SESSION('ZanAvatar') . '" style="float: left; padding: 2px; border: 1px solid #ccc;">';
-                        echo '<h2 style="float: left; margin-top: 9px; margin-left: 10px;">' . SESSION('ZanName') . '</h2>';
+                        echo '<img src="' . SESSION('ZanAvatar') . '" style="float: left; padding: 2px; border: 1px solid #ccc; max-width: 20px">';
+                        echo '<h3 style="float: left; margin-top: 9px; margin-left: 10px;">' . SESSION('ZanName') . '</h3>';
                         echo '<div style="clear: both;"></div>';
                     ?>
                     <h1>3,400 Negawatts</h1>

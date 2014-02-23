@@ -4,18 +4,18 @@
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
-            <img src="<?php echo $this->themePath; ?>/img/logoSmall.png" title="Eneract"/>
-            
-            <h3 style="color:#FFFFFF">Be more eco-conscious. Earn rewards.</h3>
-            <p style="font-size:18px; color:#FFFFFF">Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</p>
+        <img src="img/mobile-dash-4-on-device.png" style="padding:20px" width="150" style="float:left">
+            <img src="img/logoSmall.png" width="200px" title="Eneract"/>
+            <h3 style="font-size: 24px; color:#FFFFFF; text-shadow: 0px 2px 4px hsla(0, 0%, 0%, 0.24);">Be more eco-conscious. Earn rewards.</h3>
+            <p style="font-size:18px; color:#FFFFFF; text-shadow: 0px 2px 4px hsla(0, 0%, 0%, 0.24);">Enteract sends reports tracking energy usage and carbon footprint. Earn rewards, lower your energy bill, or donate to your favorite environmental cause.</p>
             <p>&nbsp;</p>
-            <?php
+           <?php
                 if (!isConnected()) {
                     echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="'. path("users/facebook") . '"> Facebook</a>&nbsp;&nbsp;';
-		            echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;';
+                    echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;';
                 }
             ?>
-            <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
+           <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
