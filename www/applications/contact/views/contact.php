@@ -18,6 +18,7 @@ if (isset($alert['error'])) {
         } elseif (isset($alert['success'])) {
             echo $alert['success'];
         }
+        var_dump($alert);
     ?>
       <form class="form-signin" role="form" method="post" action="<?php path("contact/send"); ?>">
         <h2 class="form-signin-heading">Contact Us</h2>
