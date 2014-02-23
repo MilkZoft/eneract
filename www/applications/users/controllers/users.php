@@ -14,7 +14,7 @@ class Users_Controller extends ZP_Load
 	
 	public function index()
 	{ 
-		echo "Hello World";
+		redirect();
 	}
 
 	public function profile()
@@ -26,5 +26,13 @@ class Users_Controller extends ZP_Load
 		} else {
 
 		}
+	}
+
+	public function logout()
+	{
+		session_unset();
+		session_destroy();
+
+		redirect();
 	}
 }
