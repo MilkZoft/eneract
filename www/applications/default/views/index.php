@@ -16,7 +16,7 @@
             <li><a href="#partners">Partners</a></li>
              <li><a href="#rewards">Rewards</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
