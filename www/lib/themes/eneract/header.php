@@ -92,8 +92,8 @@
           
         </div>
         <div class="collapse navbar-collapse">
+        <img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px; float:left;" />
           <ul class="nav navbar-nav">
-            <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px; float: left;" /></li>
              <li>&nbsp;</li>
              <?php 
              if (!isConnected()) {
