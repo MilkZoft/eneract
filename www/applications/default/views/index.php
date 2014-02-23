@@ -7,11 +7,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
+             <li>&nbsp;</li>
+            <li><a href="#partners">Partners</a></li>
+             <li><a href="#rewards">Rewards</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -21,19 +24,18 @@
 
     <!-- Full Page Image Header Area -->
     <div id="top" class="header">
-        <div class="vert-text">
-            <h1 style="color:#FFFFFF">Enteract</h1>
-            <h3 style="color:#FFFFFF">Save the environment. Earn rewards.</h3>
-            <h4 style="color:#FFFFFF">Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</h4>
+        <div class="col-md-6 col-md-offset-3 text-center">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+            <img src="<?php echo $this->themePath; ?>/img/logoSmall.png" title="Eneract"/>
+            
+            <h3 style="color:#FFFFFF">Be more eco-conscious. Earn rewards.</h3>
+            <p style="font-size:18px; color:#FFFFFF">Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</p>
             <p>&nbsp;</p>
-            <ul class="list-inline">
-                        <li><a href="<?php echo path("users/facebook"); ?>" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-3x"></i></a>
-                        </li>
-                        <li><a href="#about" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-3x"></i></a>
-                        </li>
-                        <li><a class="btn btn-default btn-lg"><i class="fa fa-dribbble fa-3x"></i></a>
-                        </li>
-                    </ul>
+           <a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Sign with Facebook</a>&nbsp;&nbsp;
+		   <a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;
+           <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
@@ -47,21 +49,21 @@
             <div class="row">
                 <div class="col-md-2 col-md-offset-2 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-rocket"></i>
+                        <i class="service-icon fa fa-bar-chart-o"></i>
                         <h4>Track Your Carbon Footprint Effortlessly</h4>
                         <p>Easy to scan reports about how you are saving the environment are sent directly to your mobile phone or email.</p>
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-magnet"></i>
+                        <i class="service-icon fa fa-money"></i>
                         <h4>Earn Rewards To Redeem or Donate</h4>
                         <p>Reducing your carbon footprint through carpooling or saving energy earns points to for gift points, airline miles or donating to your favorite charity.</p>
                     </div>
                 </div>
                 <div class="col-md-2 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-shield"></i>
+                        <i class="service-icon fa fa-tachometer"></i>
                         <h4>Reduce Your Energy Bill</h4>
                         <p>Use the rewards to reduce your energy bill. The rewards increase if energy consumption is decreased during peak periods.</p>
                     </div>
@@ -78,48 +80,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2>Subtle Sidebar is the Perfect Template for your Next Portfolio Website Project!</h2>
-                    <p class="lead">This template really has it all. It's up to you to customize it to your liking! It features some fresh photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                    <h2>Sponsors</h2>
+                	<img src="<?php echo $this->themePath; ?>/img/sponsors.png" title="Sponsor"/>
                 </div>
             </div>
         </div>
     </div>
     <!-- /Intro -->
- <!-- Call to Action -->
+	<!-- Call to Action -->
     <div class="call-to-action">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-default">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-primary">Look at Me!</a>
+                	<h3>Sign up with Facebook or Twitter, or download our app!</h3>
+                	<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Facebook</a>
+		    		<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>
+            		<a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /Call to Action -->
-
- 
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <ul class="list-inline">
-                        <li><i class="fa fa-facebook fa-3x"></i>
-                        </li>
-                        <li><i class="fa fa-twitter fa-3x"></i>
-                        </li>
-                        <li><i class="fa fa-dribbble fa-3x"></i>
-                        </li>
-                    </ul>
-                    <div class="top-scroll">
-                        <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
-                    </div>
-                    <hr>
-                    <p>Copyright &copy; Company 2013</p>
-                </div>
-            </div>
-        </div>
-    </footer>
