@@ -18,7 +18,6 @@ if (isset($alert['error'])) {
         } elseif (isset($alert['success'])) {
             echo $alert['success'];
         }
-        var_dump($alert);
     ?>
       <form class="form-signin" role="form" method="post" action="<?php path("contact/send"); ?>">
         <h2 class="form-signin-heading">Contact Us</h2>
@@ -27,7 +26,7 @@ if (isset($alert['error'])) {
         <br/>
         <input value='<?php echo $email; ?>' name="email" type="email" class="form-control" placeholder="Email" required>
         <br/>
-        <textarea value='<?php echo $message; ?>' name="message" cols=46 placeholder="Write your message here..."></textarea>
+        <textarea value='<?php echo $message; ?>' name="message" cols=46 height=10 placeholder="Write your message here..."></textarea>
         <br/>
         <br/>
         <button name="send" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
