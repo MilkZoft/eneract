@@ -85,6 +85,7 @@
           <ul class="nav navbar-nav">
             <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
              <li>&nbsp;</li>
+             <li><a href="<?php echo path("default"); ?>">Home</a></li>
              <?php 
              if (isConnected()) {
                 echo '<li><a href="'. path("dashboard") .'">Dashboard</a></li>';
