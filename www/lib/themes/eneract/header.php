@@ -71,6 +71,7 @@
     vertical-align: middle;
     white-space: nowrap;
   }
+  </style>
 </head>
 
 <body>   
@@ -89,14 +90,15 @@
           <ul class="nav navbar-nav">
             <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
              <li>&nbsp;</li>
-             <li><a href="<?php echo path("default"); ?>">Home</a></li>
              <?php 
-             if (isConnected()) {
+             if (!isConnected()) {
+                echo '<li><a href="' . path("default") . '">Home</a></li>';
+             } else {
                 echo '<li><a href="'. path("dashboard") .'">Dashboard</a></li>';
              } 
              ?>
             <li><a href="partners.html">Partners</a></li>
-             <li><a href="rewards.html">Rewards</a></li>
+             <li><a href="<?php echo path("reward"); ?>">Rewards</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
             <?php 
