@@ -1,4 +1,27 @@
-   <!-- JavaScript -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="list-inline">
+                        <li><i class="fa fa-facebook fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-twitter fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-dribbble fa-3x"></i>
+                        </li>
+                    </ul>
+                    <div class="top-scroll">
+                        <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
+                    </div>
+                    <hr>
+                    <p>Copyright &copy; Company 2013</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+    <!-- JavaScript -->
     <script src="<?php echo $this->themePath; ?>/js/jquery-1.10.2.js"></script>
     <script src="<?php echo $this->themePath; ?>/js/bootstrap.js"></script>
 
@@ -32,5 +55,7 @@
         });
     });
     </script>
+
 </body>
+
 </html>
