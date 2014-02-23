@@ -1,5 +1,5 @@
     <!-- Core Scripts - Include with every page -->
-     <script src="/highcharts/modules/exporting.js"></script>
+     <script src="<?php echo $this->themePath; ?>/js/highcharts/modules/exporting.js"></script>
     <!-- Footer -->
     <footer>
         <div class="container">

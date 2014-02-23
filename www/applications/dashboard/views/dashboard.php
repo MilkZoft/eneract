@@ -1,7 +1,7 @@
-    <link href="css/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="css/timeline.css" rel="stylesheet">
+    <link href="<?php echo $this->themePath; ?>/css/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="<?php echo $this->themePath; ?>/css/timeline.css" rel="stylesheet">
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo $this->themePath; ?>/css/sb-admin.css" rel="stylesheet">
     <div id="page-wrapper">
             <div class="row">
              <div class="col-lg-12">
