@@ -1,5 +1,15 @@
-    <!-- Core Scripts - Include with every page -->
-     <script src="<?php echo $this->themePath; ?>/js/highcharts/modules/exporting.js"></script>
+    <script src="<?php echo $this->themePath; ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo $this->themePath; ?>/js/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Dashboard -->
+    <script src="<?php echo $this->themePath; ?>/js/raphael-2.1.0.min.js"></script>
+    <script src="<?php echo $this->themePath; ?>/js/morris.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="<?php echo $this->themePath; ?>/js/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+    <script src="<?php echo $this->themePath; ?>/js/dashboard-demo.js"></script>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -24,7 +34,7 @@
     </footer>
     <!-- /Footer -->
     <!-- JavaScript -->
-    <script src="<?php echo $this->themePath; ?>/js/bootstrap.js"></script>
+    <script src="<?php echo $this->themePath; ?>/js/bootstrap.min.js"></script>
 
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
     <script>

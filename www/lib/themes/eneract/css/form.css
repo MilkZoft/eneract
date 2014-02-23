@@ -1,7 +1,14 @@
+html {
+ font-family: 'Roboto Slab', serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #38BFC3;
+  background-color: #f2f5f5;
+  font-family: 'Roboto Slab', serif;
 }
 
 .form-signin {
@@ -12,7 +19,7 @@ body {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
-  color:#FFFFFF;
+  color:#000;
 }
 .form-signin .checkbox {
   font-weight: normal;
