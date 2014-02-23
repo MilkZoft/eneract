@@ -4,17 +4,25 @@
     <link href="<?php echo $this->themePath; ?>/css/sb-admin.css" rel="stylesheet">
     <div id="page-wrapper">
             <div class="row">
-             <div class="col-lg-12">
-             <div>
-                <span style="float:left; margin-top:50px;"><h1>3,400 Negawatts</h1></span>
+                <div class="col-lg-6">
+                    <?php
+                        //echo '<img src="' . SESSION('ZanAvatar') . '">';
+                        echo '<img src="' . SESSION('ZanAvatar') . '" style="float: left; padding: 2px; border: 1px solid #ccc;">';
+                        echo '<h2 style="float: left; margin-top: 9px; margin-left: 10px;">' . SESSION('ZanName') . '</h2>';
+                        echo '<div style="clear: both;"></div>';
+                    ?>
+                    <h1>3,400 Negawatts</h1>
+                    <a href="<?php echo path("reward"); ?>" class="btn btn-warning">Redeem</a>
+                </div>
+                <div class="col-lg-6">
                 <span style="float:right">
-                <img src="<?php echo $this->themePath; ?>/img/hex-this-month.png" title="Negawatss this month"/>&nbsp;&nbsp;
-                <img src="<?php echo $this->themePath; ?>/img/hex-all-time.png" title="Negawatss this month"/>
+                    <img src="<?php echo $this->themePath; ?>/img/hex-this-month.png" title="Negawatss this month"/>&nbsp;&nbsp;
+                    <img src="<?php echo $this->themePath; ?>/img/hex-all-time.png" title="Negawatss this month"/>
                 </span> 
                 <div style="clear:both"></div>
             </div>
-                    
-             </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
                 </div>

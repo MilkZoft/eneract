@@ -18,7 +18,7 @@ class Default_Controller extends ZP_Load
 	
 	public function index()
 	{ 
-		if (isConnected()) {
+		if (_get("environment") == 1 or isConnected()) {
 			redirect(path("dashboard"));
 		}
 
