@@ -93,7 +93,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
+            <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;" class="pull-left"/></li>
              <li>&nbsp;</li>
              <?php 
              if (!isConnected()) {
@@ -104,7 +104,7 @@
              ?>
             <li><a href="partners.html">Partners</a></li>
              <li><a href="<?php echo path("reward"); ?>">Rewards</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
             <?php 
              if (isConnected()) {
