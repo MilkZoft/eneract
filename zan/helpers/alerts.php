@@ -11,14 +11,22 @@ if (!function_exists("getAlert")) {
 		}
 		
 		if ($type === "error") {
-			return '<div id="alert-message" class="alert alert-error">'. __($message) .'</div>';
+			return '<div id="alert-message" class="alert alert-warning">
+						<a class="close" data-dismiss="alert">×</a> 
+						<h4 class="alert-heading">Error!</h4>  
+						'. __($message) .'
+					</div>';
 		} elseif ($type === "success") {
 			unset($_POST);
-			return '<div id="alert-message" class="alert alert-success">'. __($message) .'</div>';
+			return '<div id="alert-message" class="alert alert-success">
+						<a class="close" data-dismiss="alert">×</a> 
+						<h4 class="alert-heading">Success!</h4>  
+						'. __($message) .'
+					</div>';
 		} elseif ($type === "warning") {
-			return '<div id="alert-message" class="alert alert-warning">'. __($message) .'</div>';
+			return '<div id="alert-message" class="alert alert-block alert-warning">'. __($message) .'</div>';
 		} elseif ($type === "notice") {
-			return '<div id="alert-message" class="alert alert-info">'. __($message) .'</div>';
+			return '<div id="alert-message" class="alert alert-block alert-info">'. __($message) .'</div>';
 		}
 	}
 }

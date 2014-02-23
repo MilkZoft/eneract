@@ -27,7 +27,7 @@ class Contact_Controller extends ZP_Load
 	{ 
 		if (POST("send")) {
 			$alert = $this->Contact_Model->saveMessage();
-
+			
 			$vars["alert"] = $alert;
 			$vars["view"] = $this->view("contact", true);
 
