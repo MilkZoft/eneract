@@ -13,6 +13,28 @@ class Users_Model extends ZP_Load
 		$this->fields = "userId, username, pwd, email";
 	}
 
+	public function completeProfile()
+	{
+		$this->helper("alerts");
+		
+		if (!POST("username")) {
+			
+		} elseif (!POST("email")) {
+
+		}
+
+		$data = array(
+			"facebookId" => POST("facebookId"),
+			"username" => POST("username"),
+			"avatar" => POST("avatar"),
+			"name" => POST("name"),
+			"email" => POST("email"),
+			"phone" => POST("phone")
+		);
+
+		$this->Db->insert($this->table, $data);
+	}
+
 	public function checkUserService($id, $service = "Facebook")
 	{
 		if ($service == "Facebook") {
