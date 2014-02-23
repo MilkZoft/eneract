@@ -29,6 +29,7 @@ $serviceID  = recoverPOST("serviceID", $socialUser["serviceID"]);
 			<input  class="btn btn-lg btn-primary btn-block" name="complete" type="submit" class="btn" value="<?php echo __("Complete Profile"); ?>" />
 		</p>
 
+		<input name="username" type="hidden" value="<?php echo $username; ?>" />
 		<input name="name" type="hidden" value="<?php echo $name; ?>" />
 		<input name="avatar" type="hidden" value="<?php echo $avatar; ?>" />
 		<input name="facebookId" type="hidden" value="<?php echo $serviceID; ?>" />

@@ -18,6 +18,8 @@ class Default_Controller extends ZP_Load
 	
 	public function index()
 	{ 
+		isConnected(path("dashboard"));
+		
 		$vars["view"] = $this->view("index", true);
 		
 		$this->render("content", $vars);

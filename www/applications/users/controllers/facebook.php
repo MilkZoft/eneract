@@ -41,6 +41,12 @@ class Facebook_Controller extends ZP_Load
 		     				"birthday" 	=> $facebookUser["birthday"],
 		     				"avatar" 	=> $facebookUser["avatar"]
 		     			);
+		     			
+		     			SESSION("ZanUserId", $facebookUser["serviceID"]);
+						SESSION("ZanUser", $facebookUser["username"]);
+						SESSION("ZanName", $facebookUser["name"]);
+						SESSION("ZanAvatar", $facebookUser["avatar"]);
+						SESSION("ZanEmail", $facebookUser["email"]);
 
 						SESSION("socialUser", $vars);
 

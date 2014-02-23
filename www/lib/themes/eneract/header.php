@@ -87,7 +87,7 @@
              <li>&nbsp;</li>
              <?php 
              if (isConnected()) {
-              echo '<li><a href="<?php echo path("dashboard"); ?>">Dashboard</a></li>';
+                echo '<li><a href="'. path("dashboard") .'">Dashboard</a></li>';
              } 
              ?>
             <li><a href="partners.html">Partners</a></li>

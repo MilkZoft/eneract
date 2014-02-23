@@ -72,8 +72,12 @@ if (!function_exists("isAdmin")) {
 if (!function_exists("isConnected")) {
 	function isConnected($URL = false)
 	{
-		if (!SESSION("ZanUser")) {			
-			redirect(($URL !== false) ? $URL : path("users/login/?return_to=". urlencode(getURL())));
+		if (!SESSION("ZanUser")) {	
+			if ($URL !== false) {		
+				redirect($URL);
+			}
+
+			return false;
 		} 
 
 		return true;
