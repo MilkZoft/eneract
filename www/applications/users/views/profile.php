@@ -12,12 +12,12 @@ $avatar     = recoverPOST("avatar", $socialUser["avatar"]);
 $serviceID  = recoverPOST("serviceID", $socialUser["serviceID"]);
 ?>
 <div class="container">
-	<form action="<?php path("users/profile"); ?>" method="post" class="form-signin">
+	<form action="<?php echo path("users/profile"); ?>" method="post" class="form-signin">
 		<h2 class="form-signin-heading"><?php echo img($avatar); ?> <strong><?php echo __("Hi"); ?></strong>, <?php echo $name; ?>!</h2>
 
 		<p>
 			<?php echo __("Email"); ?>: 
-			<input class="form-control" name="email" type="email" value="<?php echo $email; ?>" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" />
+			<input class="form-control" required name="email" type="email" value="<?php echo $email; ?>" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" />
 		</p>
 
 		<p>
