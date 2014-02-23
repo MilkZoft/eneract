@@ -10,6 +10,11 @@
     	<link href='http://fonts.googleapis.com/css?family=Duru+Sans' rel='stylesheet' type='text/css'>
 		<link href="<?php echo $this->themePath; ?>/css/bootstrap.css" rel="stylesheet">
 		<link href="<?php echo $this->themePath; ?>/css/stylish-portfolio.css" rel="stylesheet">
+
+		<?php if (whichApplication() == "users") { ?>
+			<link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
+    	<?php } ?>
+    	
     	<link href="<?php echo $this->themePath; ?>/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		<?php echo $this->getCSS(); ?>
 	</head>
