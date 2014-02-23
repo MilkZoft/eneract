@@ -28,13 +28,13 @@ class Contact_Controller extends ZP_Load
 		if (POST("send")) {
 			$alert = $this->Contact_Model->saveMessage();
 
-			$vars['alert'] = $alert;
-			$vars['view'] = $this->view('contact', true);
+			$vars["alert"] = $alert;
+			$vars["view"] = $this->view("contact", true);
 
 			$this->render('content', $vars);
 		} else {
-			$vars['view'] = $this->view('contact', true);
-			$this->render('content', $vars);
+			$vars["view"] = $this->view("contact", true);
+			$this->render("content", $vars);
 		}
 	}
 }

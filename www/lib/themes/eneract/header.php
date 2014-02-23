@@ -14,8 +14,8 @@
     <link href="<?php echo $this->themePath; ?>/css/stylish-portfolio.css" rel="stylesheet">
     <link href="<?php echo $this->themePath; ?>/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script src="<?php echo $this->themePath; ?>/js/jquery-1.10.2.js"></script>
-    <?php if (whichApplication() == "users") { ?>
-		<link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
+    <?php if (whichApplication() == "users" or whichApplication() == "contact") { ?>
+		  <link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
     <?php } ?>
     <style>
     html {
