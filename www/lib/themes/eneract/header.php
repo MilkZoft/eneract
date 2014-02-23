@@ -104,7 +104,7 @@
              ?>
             <li><a href="partners.html">Partners</a></li>
              <li><a href="<?php echo path("reward"); ?>">Rewards</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
             <?php 
              if (isConnected()) {
