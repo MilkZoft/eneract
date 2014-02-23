@@ -24,7 +24,7 @@
     </footer>
     <!-- /Footer -->
     <!-- JavaScript -->
-    <script src="<?php echo $this->themePath; ?>/js/bootstrap.js"></script>
+    <script src="<?php echo $this->themePath; ?>/js/bootstrap.min.js"></script>
 
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
     <script>
