@@ -25,6 +25,11 @@ $serviceID  = recoverPOST("serviceID", $socialUser["serviceID"]);
 		</p>
 
 		<p>
+			<?php echo __("Phone"); ?>: 
+			<input class="form-control" placeholder="<?php echo __("XXX-XXX-XXXX"); ?>" name="phone" type="tel" />
+		</p>
+
+		<p>
 			<input  class="btn btn-lg btn-primary btn-block" name="complete" type="submit" class="btn" value="<?php echo __("Complete Profile"); ?>" />
 		</p>
 
