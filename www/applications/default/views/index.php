@@ -1,27 +1,3 @@
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><img src="<?php echo $this->themePath; ?>/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
-             <li>&nbsp;</li>
-            <li><a href="#partners">Partners</a></li>
-             <li><a href="#rewards">Rewards</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
     <!-- Full Page Image Header Area -->
     <div id="top" class="header">
         <div class="col-md-6 col-md-offset-3 text-center">
