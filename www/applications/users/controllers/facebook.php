@@ -32,17 +32,11 @@ class Facebook_Controller extends ZP_Load
 		     		if ($data) {
 		     			createLoginSessions($data[0]);
 		     		} else {
-		     			$vars = array(
-		     				"service" 	=> "facebook",
-		     				"serviceID" => $facebookUser["serviceID"],
-		     				"username" 	=> $facebookUser["username"],
-		     				"name" 		=> $facebookUser["name"],
-		     				"email" 	=> $facebookUser["email"],
-		     				"birthday" 	=> $facebookUser["birthday"],
-		     				"avatar" 	=> $facebookUser["avatar"]
-		     			);
-
-						SESSION("socialUser", $vars);
+		     			SESSION("ZanUserId", $facebookUser["serviceID"])
+		     			SESSION("ZanUser", $facebookUser["username"]);
+		     			SESSION("ZanName", $facebookUser["name"]);
+		     			SESSION("ZanAvatar", $facebookUser["avatar"]);
+		     			SESSION("ZanEmail", $facebookUser["email"]);
 
 		     			$vars["view"] = $this->view("profile", true);
 

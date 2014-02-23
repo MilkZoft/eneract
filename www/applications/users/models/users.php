@@ -17,12 +17,6 @@ class Users_Model extends ZP_Load
 	{
 		$this->helper("alerts");
 		
-		if (!POST("username")) {
-			
-		} elseif (!POST("email")) {
-
-		}
-
 		$data = array(
 			"facebookId" => POST("facebookId"),
 			"username" => POST("username"),
@@ -33,6 +27,8 @@ class Users_Model extends ZP_Load
 		);
 
 		$this->Db->insert($this->table, $data);
+
+		showAlert(__("Welcome to Eneract"), path());
 	}
 
 	public function checkUserService($id, $service = "Facebook")
