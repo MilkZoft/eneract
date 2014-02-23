@@ -234,3 +234,9 @@ i.scroll:hover {
   }
 
 }
+
+@media (max-width: 320px) {
+  .btn {
+    margin-bottom: 1em;
+  }
+}

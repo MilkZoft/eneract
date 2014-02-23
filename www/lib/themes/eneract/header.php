@@ -70,7 +70,6 @@
     font-size: 14px;
     font-weight: normal;
     line-height: 1.42857;
-    margin-bottom: 0;
     padding: 6px 12px;
     text-align: center;
     vertical-align: middle;
