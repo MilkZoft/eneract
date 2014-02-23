@@ -8,3 +8,7 @@ usersemail
 users_username
 users.email
 username_for_the_account
+--- 23/02/2014 ---
+all_rights_reserved
+powered_by
+error_message
