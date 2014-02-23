@@ -23,7 +23,7 @@ class Default_Controller extends ZP_Load
 		}
 
 		$vars["view"] = $this->view("index", true);
-		
+
 		$this->render("content", $vars);
 	}
 

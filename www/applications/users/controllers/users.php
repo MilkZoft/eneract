@@ -14,7 +14,7 @@ class Users_Controller extends ZP_Load
 	
 	public function index()
 	{ 
-		redirect();
+		echo "algo";
 	}
 
 	public function profile()
