@@ -10,7 +10,7 @@ if (isset($alert['error'])) {
 }
 
 ?>
-
+<link href="<?php echo $this->themePath; ?>/css/form.css" rel="stylesheet">
 <div class="container">
     <?php
         if (isset($alert['error'])) {

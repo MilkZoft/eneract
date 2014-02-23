@@ -36,8 +36,9 @@ class Contact_Model extends ZP_Load
 			"message" => POST("message")
 		);
 
-		$this->Db->insert($this->table, $data);
-
+		$val = $this->Db->insert($this->table, $data);
+		var_dump($data);
+		die(var_dump($val));
 		return array('success' => getAlert(__('Submission successful!')));
 	}
 }
