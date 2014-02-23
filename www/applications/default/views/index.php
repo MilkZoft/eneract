@@ -11,7 +11,7 @@
             <p>&nbsp;</p>
             <?php
                 if (!isConnected()) {
-                    echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Sign with Facebook</a>&nbsp;&nbsp;';
+                    echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="'. path("users/facebook") . '"> Facebook</a>&nbsp;&nbsp;';
 		            echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;';
                 }
             ?>
@@ -75,7 +75,7 @@
                 	<h3>Sign up with Facebook or Twitter, or download our app!</h3>
                 	<?php
                     if (!isConnected()) {
-                        echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Facebook</a>';
+                        echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="' . echo path("users/facebook") . '"> Facebook</a>';
 		    		    echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>';
             		}
                     ?>

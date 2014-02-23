@@ -96,7 +96,7 @@
             <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
             <?php 
              if (isConnected()) {
-                echo '<li><a href="<?php echo path("users/logout"); ?>">Logout</a></li>';
+                echo '<li><a href="' . path("users/logout") . '">Logout</a></li>';
              } 
              ?>
           </ul>
