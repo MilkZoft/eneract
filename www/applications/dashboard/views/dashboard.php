@@ -8,8 +8,8 @@
              <div>
                 <span style="float:left; margin-top:50px;"><h1>3,400 Negawatts</h1></span>
                 <span style="float:right">
-                <img src="img/hex-this-month.png" title="Negawatss this month"/>&nbsp;&nbsp;
-                <img src="img/hex-all-time.png" title="Negawatss this month"/>
+                <img src="<?php echo $this->themePath; ?>/img/hex-this-month.png" title="Negawatss this month"/>&nbsp;&nbsp;
+                <img src="<?php echo $this->themePath; ?>/img/hex-all-time.png" title="Negawatss this month"/>
                 </span> 
                 <div style="clear:both"></div>
             </div>
@@ -48,5 +48,5 @@
             
                 
         <!-- /#page-wrapper -->
-
     </div>
+    <script src="<?php echo $this->themePath; ?>/js/highcharts/highcharts.js"></script>
