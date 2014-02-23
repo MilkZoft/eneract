@@ -33,6 +33,6 @@ class Contact_Model extends ZP_Load
 
 		$this->Db->insert($this->table, $data);
 		
-		return array('success' => getAlert(__('Submission successful!')));
+		return array('success' => getAlert(__('Submission successful!'), "success"));
 	}
 }
