@@ -94,7 +94,11 @@
              <li><a href="rewards.html">Rewards</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="<?php echo path("contact"); ?>">Contact</a></li>
-            <li class="pull-right"><a href="<?php echo path("users/logout"); ?>">Logout</a></li>
+            <?php 
+             if (isConnected()) {
+                echo '<li><a href="<?php echo path("users/logout"); ?>">Logout</a></li>';
+             } 
+             ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
