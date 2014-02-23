@@ -30,7 +30,15 @@ class Facebook_Controller extends ZP_Load
 		     		$data = $this->Users_Model->checkUserService($facebookUser["serviceID"]);
 
 		     		if ($data) {
-		     			createLoginSessions($data[0]);
+		     			SESSION("ZanUserId", $data[0]["facebookId"]);
+						SESSION("ZanUser", $data[0]["username"]);
+						SESSION("ZanName", $data[0]["name"]);
+						SESSION("ZanAvatar", $data[0]["avatar"]);
+						SESSION("ZanEmail", $data[0]["email"]);
+
+						$this->Users_Model->updateLastLogin($data[0]["facebookId"]);
+
+						redirect();
 		     		} else {
 		     			$vars = array(
 		     				"service" 	=> "facebook",

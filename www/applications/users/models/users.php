@@ -13,6 +13,13 @@ class Users_Model extends ZP_Load
 		$this->fields = "userId, username, pwd, email";
 	}
 
+	public function updateLastLogin($facebookId)
+	{
+		$date = date("Y-m-d H:m:s", time());
+
+		$this->Db->query("UPDATE nw_users SET lastLogin = '$date' WHERE facebookId = '$facebookId'");
+	}
+
 	public function completeProfile()
 	{
 		$this->helper("alerts");
@@ -23,7 +30,9 @@ class Users_Model extends ZP_Load
 			"avatar" => POST("avatar"),
 			"name" => POST("name"),
 			"email" => POST("email"),
-			"phone" => POST("phone")
+			"phone" => POST("phone"),
+			"createAt" => date("Y-m-d H:m:s", time()),
+			"lastLogin" => date("Y-m-d H:m:s", time())
 		);
 
 		$this->Db->insert($this->table, $data);
@@ -39,8 +48,8 @@ class Users_Model extends ZP_Load
 			$serviceID = 'twitterId';
 		}
 
-		$fields = "userId, facebookId, facebookImageUrl, email, phone";
-	
+		$fields = "userId, facebookId, username, name, avatar, email, phone";
+		
 		return $this->Db->query("SELECT $fields FROM ". DB_PREFIX ."users WHERE $serviceID = '$id'");
 	}
 }
