@@ -16,6 +16,11 @@
     <script src="<?php echo $this->themePath; ?>/js/jquery-1.10.2.js"></script>
     <?php if (whichApplication() == "users" or whichApplication() == "contact") { ?>
 		  <link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
+    <?php } elseif (whichApplication() == "dashboard") {?>
+      <link href="<?php echo $this->themePath; ?>/css/morris-0.4.3.min.css" rel="stylesheet">
+      <link href="<?php echo $this->themePath; ?>/css/timeline.css" rel="stylesheet">
+      <!-- SB Admin CSS - Include with every page -->
+      <link href="<?php echo $this->themePath; ?>/css/sb-admin.css" rel="stylesheet">
     <?php } ?>
     <style>
     html {

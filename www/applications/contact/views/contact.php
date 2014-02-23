@@ -33,7 +33,7 @@ if (isset($alert["error"])) {
         </p>
 
         <p>
-            <textarea value="<?php echo $message; ?>" name="message" style="height: 160px;" placeholder="<?php echo __("Write your message here..."); ?>"></textarea>
+            <textarea value="<?php echo $message; ?>" class="form-control" name="message" style="height: 160px;" placeholder="<?php echo __("Write your message here..."); ?>"></textarea>
         </p>
         
         <p>
