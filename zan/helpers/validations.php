@@ -60,7 +60,7 @@ if (!function_exists("isInjection")) {
 				return true;
 			} elseif (substr_count($text, "<script") >= $count) {
 				return true;
-			} elseif (substr_count($text, "<if rame") >= $count) {
+			} elseif (substr_count($text, "<iframe") >= $count) {
 				return true;
 			}	
 		}
@@ -79,10 +79,10 @@ if (!function_exists("isSPAM")) {
 	function isSPAM($string, $max = 1)
 	{
 		$words = array(	
-			"www", ".co.uk", ".jp", ".ch", ".info", ".mobi", ".us", ".ca", ".ws", ".ag", 
+			"www", ".co.uk", ".jp", ".ch", ".info", ".mobi", ".us", ".ca", ".ws", ".ag", ".pl", "?????", "href",
 			".com.co", ".net.co", ".com.ag", ".net.ag", ".it", ".fr", ".tv", ".am", ".asia", ".at", ".be", ".cc", ".de", ".es", ".com.es", ".eu", 
 			".fm", ".in", ".tk", ".com.mx", ".nl", ".nu", ".tw", ".vg", "sex", "porn", "fuck", "buy", "free", "dating", "viagra", "money", "dollars", 
-			"payment", "website", "games", "toys", "poker", "cheap"
+			"payment", "website", "games", "toys", "poker", "cheap", "[url]", "[/url]", "[url="
 		);
 						
 	    $count = 0;
@@ -93,8 +93,8 @@ if (!function_exists("isSPAM")) {
 				$count += substr_count($string, $word);
 			}
 		}
-		
-		return ($count > $max) ? true : false;
+
+		return ($count >= $max) ? true : false;
 	}
 }
 
@@ -109,13 +109,13 @@ if (!function_exists("isVulgar")) {
 			"mamadas", "lesbianas", "coño", "huevon", "sudaca", "fucker", "ramera", "fuck", "bitch", "malparido", "hijuputa", "gonorrea", 
 			"marica e' polvado", "boludo", "chimba", "chunchurria", "gorsovia", "condon", "gorzobia", "bastardo", "fueputa", "zunga", 
 			"flaite", "reculiao", "reculiado", "culiado", "culiao", "puñetero", "ñero", "gil", "mujerzuelo", "mujerzuela", "puberto", 
-			"emo", "emopuberto", "putete", "pendejete", "pajero", "putito", "putita", "mamar en reversa", "clitoris", "penudo", "hijueputa",
+			"emopuberto", "putete", "pendejete", "pajero", "putito", "putita", "mamar en reversa", "clitoris", "penudo", "hijueputa",
 			"galondra", "piroba", "guaricha", "catre", "catre hijueputa", "putazo", "trollazo", "putaso", "putisimo", "putillo", "pete", 
 			"puñete", "puñeñe", "penitente", "vergacion", "vergatario", "nawara", "porqueria", "pajuo", "becerro", "mieldero", "tarado",
 			"mierdero", "aweboniao", "aweboniado", "aweboniar", "a webo", "orto", "horto", "coger", "imvecil", "inbecil", "imbesil", 
 			"imvesil", "mames", "guaton", "callampa", "callapa", "cayapa", "ermio", "vergon", "vergudo", "verguita", "xuxa", "andate", 
 			"kaga", "kagar", "kagon", "vaca", "kear", "vacan", "bakan", "bakano", "vacano", "bagina", "pichicho", "calzon", "tanga", 
-			"cagado", "cagadisimo", "caguengue", "cojido", "cojida", "orgasmo", "anal", "ano", "catimba", "guevo", "lamepene", "pucha",
+			"cagado", "cagadisimo", "caguengue", "cojido", "cojida", "orgasmo", "anal", "catimba", "guevo", "lamepene", "pucha",
 			"coño he tu madre", "cojio", "culero", "culito", "malpario", "verguero", "vergero", "nojoa", "nojodas", "jolines", "pichi", 
 			"pinshe", "inche", "reputisima", "infeliz", "concha rota", "chupame el piko", "chupame el pico", "huevon","camboyana", 
 			"pelao", "pelado", "chuchalaloma", "conchetumare", "chuchetumare", "guaite", "ñoño", "ñoña", "charquican", "piko", "menem",
