@@ -9,9 +9,13 @@
             <h3 style="color:#FFFFFF">Be more eco-conscious. Earn rewards.</h3>
             <p style="font-size:18px; color:#FFFFFF">Enteract sends you automated reports that track your energy usage and carbon footprint. You earn rewards, including gift cards, credits toward your energy bill donations to your favorite environmental cause.</p>
             <p>&nbsp;</p>
-           <a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Sign with Facebook</a>&nbsp;&nbsp;
-		   <a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;
-           <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
+            <?php
+                if (!isConnected()) {
+                    echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Sign with Facebook</a>&nbsp;&nbsp;';
+		            echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>&nbsp;&nbsp;';
+                }
+            ?>
+            <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
         </div>
     </div>
     <!-- /Full Page Image Header Area -->
@@ -69,9 +73,13 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                 	<h3>Sign up with Facebook or Twitter, or download our app!</h3>
-                	<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Facebook</a>
-		    		<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>
-            		<a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
+                	<?php
+                    if (!isConnected()) {
+                        echo '<a class="btn btn-Facebook btn-lg fa fa-facebook fa-1x" href="<?php echo path("users/facebook"); ?>"> Facebook</a>';
+		    		    echo '<a class="btn btn-Twitter btn-lg fa fa-twitter fa-1x" href="#twitter"> Twitter</a>';
+            		}
+                    ?>
+                    <a class="btn btn-Download btn-lg fa-1x" href="#app"> Download App</a>
                 </div>
             </div>
         </div>

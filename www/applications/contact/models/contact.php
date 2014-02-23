@@ -15,7 +15,7 @@ class Contact_Model extends ZP_Load
 
 	public function saveMessage() 
 	{
-		/*$this->helper("alerts");
+		$this->helper("alerts");
 
 		if (!POST("name")) {
 			return array('error' => getAlert(__('You need to write your name.')));
@@ -23,7 +23,7 @@ class Contact_Model extends ZP_Load
 			return array('error' => getAlert(__('You need to write your email.')));
 		} elseif (!POST("message")) {
 			return array('error' => getAlert(__('You need to write a message.')));
-		}*/
+		}
 
 		$data = array(
 			"name" => POST("name"),
@@ -32,7 +32,6 @@ class Contact_Model extends ZP_Load
 		);
 
 		$val = $this->Db->insert($this->table, $data);
-		return false;
 		return array('success' => getAlert(__('Submission successful!')));
 	}
 }
