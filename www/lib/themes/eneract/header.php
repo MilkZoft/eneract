@@ -13,6 +13,9 @@
    <!-- Add custom CSS here -->
     <link href="<?php echo $this->themePath; ?>/css/stylish-portfolio.css" rel="stylesheet">
     <link href="<?php echo $this->themePath; ?>/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <?php if (whichApplication() == "users") { ?>
+		<link href="<?php echo $this->themePath; ?>/css/forms.css" rel="stylesheet">
+    <?php } ?>
     <style>
 		.btn-lg {
 		border-radius: 6px;
