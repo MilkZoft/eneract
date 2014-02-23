@@ -57,3 +57,27 @@
 </head>
 
 <body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><img src="http://www.eneract.co/www/lib/themes/eneract/img/logo-header.png" title="Eneract" style="margin-top:6px;"/></li>
+             <li>&nbsp;</li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="partners.html">Partners</a></li>
+             <li><a href="rewards.html">Rewards</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
