@@ -31,8 +31,8 @@ class Users_Model extends ZP_Load
 			"name" => POST("name"),
 			"email" => POST("email"),
 			"phone" => POST("phone"),
-			"createAt" => date("Y-m-d H:m:s", time());
-			"lastLogin" => date("Y-m-d H:m:s", time());
+			"createAt" => date("Y-m-d H:m:s", time()),
+			"lastLogin" => date("Y-m-d H:m:s", time())
 		);
 
 		$this->Db->insert($this->table, $data);
